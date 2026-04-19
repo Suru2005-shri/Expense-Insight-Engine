@@ -116,7 +116,7 @@ def generate_expenses(year: int = 2024, n_transactions: int = 400) -> pd.DataFra
 def save_dataset(df: pd.DataFrame, path: str = "data/expenses.csv") -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     df.to_csv(path, index=False)
-    print(f"✅ Dataset saved → {path}  ({len(df)} rows)")
+    print(f" Dataset saved → {path}  ({len(df)} rows)")
 
 
 if __name__ == "__main__":
