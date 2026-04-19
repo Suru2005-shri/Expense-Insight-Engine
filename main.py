@@ -1,19 +1,4 @@
-"""
-╔══════════════════════════════════════════════════════════╗
-║      EXPENSE TRACKER APP — using Data Science            ║
-║      Author  : Your Name                                 ║
-║      Year    : 2024                                      ║
-║      Stack   : Python · Pandas · NumPy · Matplotlib      ║
-╚══════════════════════════════════════════════════════════╝
 
-Run:
-    python main.py
-
-Outputs:
-    data/expenses.csv          ← synthetic dataset
-    outputs/annual_report.txt  ← full text report
-    outputs/charts/*.png       ← 12 charts
-"""
 
 import os
 import sys
