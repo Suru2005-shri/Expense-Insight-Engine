@@ -24,7 +24,7 @@ def generate_insights(
 
     # ── Total spend ──────────────────────────────────────────────────────────
     insights.append(
-        f"📌 Total spent in 2024 : ₹{stats['total_spent']:,.2f} "
+        f"Total spent in 2024 : ₹{stats['total_spent']:,.2f} "
         f"across {stats['total_transactions']} transactions."
     )
 
@@ -195,7 +195,7 @@ def print_report(
     print(f"  Savings Rate    : {savings['savings_rate_pct']:>9.1f}%")
 
     # Insights
-    print(f"\n{'🔍 KEY INSIGHTS':^65}")
+    print(f"\n{'KEY INSIGHTS':^65}")
     print(sep)
     for ins in insights:
         print(f"  {ins}")
