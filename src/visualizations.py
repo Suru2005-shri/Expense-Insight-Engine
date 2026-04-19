@@ -61,7 +61,7 @@ def _save(fig, name):
     path = os.path.join(OUTPUT_DIR, name)
     fig.savefig(path, dpi=150, bbox_inches="tight", facecolor=BG_COLOR)
     plt.close(fig)
-    print(f"  💾 Saved → {path}")
+    print(f"  Saved → {path}")
     return path
 
 
@@ -94,7 +94,7 @@ def plot_category_pie(cat_df: pd.DataFrame) -> str:
         fontsize=9, frameon=False,
         labelcolor=TEXT_COLOR
     )
-    ax.set_title("💸 Spending by Category", color=TEXT_COLOR,
+    ax.set_title(" Spending by Category", color=TEXT_COLOR,
                  fontsize=15, fontweight="bold", pad=20)
     return _save(fig, "01_category_pie.png")
 
@@ -115,7 +115,7 @@ def plot_category_bar(cat_df: pd.DataFrame) -> str:
                 f"₹{val:,.0f}", va="center", ha="left",
                 color=TEXT_COLOR, fontsize=8)
 
-    _style_ax(ax, "📊 Total Spending by Category", "Amount (₹)", "")
+    _style_ax(ax, "Total Spending by Category", "Amount (₹)", "")
     ax.invert_yaxis()
     ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"₹{x/1000:.0f}K"))
     return _save(fig, "02_category_bar.png")
@@ -198,7 +198,7 @@ def plot_weekly_heatmap(df: pd.DataFrame) -> str:
         annot=False,
         cbar_kws={"label": "Avg ₹ Spent"},
     )
-    ax.set_title("🔥 Spending Heatmap — Day × Hour", color=TEXT_COLOR,
+    ax.set_title("Spending Heatmap — Day × Hour", color=TEXT_COLOR,
                  fontsize=13, fontweight="bold", pad=12)
     ax.tick_params(colors=TEXT_COLOR, labelsize=8)
     return _save(fig, "05_weekly_heatmap.png")
@@ -223,7 +223,7 @@ def plot_budget_vs_actual(budget_df: pd.DataFrame) -> str:
                        for a, b in zip(actual, budget)],
                 edgecolor="none", alpha=0.85)
 
-    _style_ax(ax, "🎯 Budget vs Actual Monthly Spend", "", "Amount (₹)")
+    _style_ax(ax, "Budget vs Actual Monthly Spend", "", "Amount (₹)")
     ax.set_xticks(x)
     ax.set_xticklabels([c.replace(" & ", "\n& ").replace(" ", "\n", 1)
                         for c in cats], rotation=0, fontsize=7.5, color=TEXT_COLOR)
@@ -256,7 +256,7 @@ def plot_quarterly(qtr_df: pd.DataFrame) -> str:
         at.set_color("white")
         at.set_fontsize(10)
 
-    ax.set_title("📅 Quarterly Spending Distribution",
+    ax.set_title("Quarterly Spending Distribution",
                  color=TEXT_COLOR, fontsize=14, fontweight="bold", pad=20)
     return _save(fig, "07_quarterly_donut.png")
 
@@ -276,7 +276,7 @@ def plot_top_transactions(top_df: pd.DataFrame) -> str:
         ax.text(bar.get_width() + 100, bar.get_y() + bar.get_height() / 2,
                 f"₹{val:,.0f}", va="center", color=TEXT_COLOR, fontsize=8)
 
-    _style_ax(ax, "🏆 Top 10 Highest Transactions", "Amount (₹)", "")
+    _style_ax(ax, "Top 10 Highest Transactions", "Amount (₹)", "")
     ax.invert_yaxis()
     ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f"₹{v/1000:.0f}K"))
     return _save(fig, "08_top_transactions.png")
@@ -343,7 +343,7 @@ def plot_savings_gauge(savings: dict) -> str:
     fig.text(0.5, 0.05,
              f"Income: ₹{income:,.0f}  |  Spent: ₹{spend:,.0f}  |  Saved: ₹{saved:,.0f}",
              ha="center", color=TEXT_COLOR, fontsize=10)
-    fig.suptitle("💰 Monthly Savings Overview",
+    fig.suptitle(" Monthly Savings Overview",
                  color=TEXT_COLOR, fontsize=14, fontweight="bold", y=0.95)
     return _save(fig, "10_savings_gauge.png")
 
@@ -377,7 +377,7 @@ def plot_anomalies(df: pd.DataFrame, anomalies: pd.DataFrame) -> str:
 
 def plot_dashboard_summary(cat_df, monthly_df, pay_df, budget_df) -> str:
     fig = plt.figure(figsize=(18, 10), facecolor=BG_COLOR)
-    fig.suptitle("📊  Expense Tracker — 2024 Dashboard Summary",
+    fig.suptitle("Expense Tracker ",
                  color=TEXT_COLOR, fontsize=18, fontweight="bold", y=0.98)
 
     # ── Plot 1: Category Pie ──────────────────────────────────────────────
