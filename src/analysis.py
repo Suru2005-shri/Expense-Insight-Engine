@@ -24,9 +24,13 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     # Parse date column
     df["date"] = pd.to_datetime(df["date"])
 
-    # Remove duplicates
+    # Remove duplicates (handle both 'id' and 'transaction_id' column names)
     before = len(df)
-    df.drop_duplicates(subset=["transaction_id"], inplace=True)
+    id_col = "transaction_id" if "transaction_id" in df.columns else "id"
+    if id_col in df.columns:
+        df = df.drop_duplicates(subset=[id_col])
+    else:
+        df = df.drop_duplicates()
     print(f"  Duplicates removed : {before - len(df)}")
 
     # Remove bad amounts
@@ -35,11 +39,12 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     print(f"  Zero/negative rows removed : {bad.sum()}")
 
     # Fill missing descriptions
-    df["description"].fillna("Unknown", inplace=True)
+    df["description"] = df["description"].fillna("Unknown")
 
     # Ensure dtypes
-    df["amount"]    = df["amount"].astype(float)
-    df["month_num"] = df["month_num"].astype(int)
+    df["amount"] = df["amount"].astype(float)
+    if "month_num" in df.columns:
+        df["month_num"] = df["month_num"].astype(int)
 
     print(f"  Clean dataset shape : {df.shape}")
     return df.reset_index(drop=True)
@@ -57,7 +62,7 @@ def summary_stats(df: pd.DataFrame) -> dict:
         "total_transactions": len(df),
         "date_range":         f"{df['date'].min().date()} → {df['date'].max().date()}",
         "unique_categories":  df["category"].nunique(),
-        "months_covered":     df["month_num"].nunique(),
+        "months_covered":     df["month_num"].nunique() if "month_num" in df.columns else df["date"].dt.month.nunique(),
     }
     return stats
 
@@ -81,6 +86,11 @@ def category_analysis(df: pd.DataFrame) -> pd.DataFrame:
 
 def monthly_trends(df: pd.DataFrame) -> pd.DataFrame:
     """Monthly spending aggregated across all categories."""
+    df = df.copy()
+    if "month_num" not in df.columns:
+        df["month_num"] = pd.to_datetime(df["date"]).dt.month
+    if "month" not in df.columns:
+        df["month"] = pd.to_datetime(df["date"]).dt.strftime("%B")
     monthly = (
         df.groupby(["month_num", "month"])["amount"]
         .agg(total="sum", count="count", avg="mean")
