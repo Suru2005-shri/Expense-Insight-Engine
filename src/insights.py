@@ -31,58 +31,58 @@ def generate_insights(
     # ── Top category ─────────────────────────────────────────────────────────
     top_cat = cat_df.iloc[0]
     insights.append(
-        f"🏆 Highest spending category : {top_cat['category']} "
+        f" Highest spending category : {top_cat['category']} "
         f"(₹{top_cat['total']:,.2f}, {top_cat['pct_of_total']:.1f}% of total)."
     )
 
     # ── Lowest category ───────────────────────────────────────────────────────
     low_cat = cat_df.iloc[-1]
     insights.append(
-        f"💡 Lowest spending category : {low_cat['category']} "
+        f" Lowest spending category : {low_cat['category']} "
         f"(₹{low_cat['total']:,.2f})."
     )
 
     # ── Peak spending month ───────────────────────────────────────────────────
     peak = monthly_df.loc[monthly_df["total"].idxmax()]
     insights.append(
-        f"📅 Peak spending month : {peak['month']} (₹{peak['total']:,.2f})."
+        f" Peak spending month : {peak['month']} (₹{peak['total']:,.2f})."
     )
 
     # ── Lowest spending month ─────────────────────────────────────────────────
     low_month = monthly_df.loc[monthly_df["total"].idxmin()]
     insights.append(
-        f"📉 Lowest spending month : {low_month['month']} (₹{low_month['total']:,.2f})."
+        f" Lowest spending month : {low_month['month']} (₹{low_month['total']:,.2f})."
     )
 
     # ── Average transaction ───────────────────────────────────────────────────
     insights.append(
-        f"💳 Average transaction amount : ₹{stats['avg_transaction']:,.2f}."
+        f"Average transaction amount : ₹{stats['avg_transaction']:,.2f}."
     )
 
     # ── Over-budget categories ────────────────────────────────────────────────
     over = budget_df[budget_df["status"].str.contains("Over")]
     if len(over):
         cats = ", ".join(over["category"].tolist())
-        insights.append(f"⚠️  Over-budget categories ({len(over)}) : {cats}.")
+        insights.append(f"  Over-budget categories ({len(over)}) : {cats}.")
     else:
-        insights.append("✅ All categories are within budget — great discipline!")
+        insights.append(" All categories are within budget — great discipline!")
 
     # ── Under-budget categories ───────────────────────────────────────────────
     under = budget_df[budget_df["status"].str.contains("Under")]
     insights.append(
-        f"🟢 Under-budget categories : {len(under)} out of {len(budget_df)}."
+        f" Under-budget categories : {len(under)} out of {len(budget_df)}."
     )
 
     # ── Savings ──────────────────────────────────────────────────────────────
     rate = savings["savings_rate_pct"]
     label = (
-        "🌟 Excellent" if rate >= 30
-        else "👍 Good"   if rate >= 20
-        else "🟡 Fair"   if rate >= 10
-        else "🔴 Poor"
+        " Excellent" if rate >= 30
+        else " Good"   if rate >= 20
+        else " Fair"   if rate >= 10
+        else " Poor"
     )
     insights.append(
-        f"💰 Savings rate : {rate:.1f}%  ({label}) — "
+        f"Savings rate : {rate:.1f}%  ({label}) — "
         f"saving ₹{savings['monthly_savings']:,.2f}/month."
     )
 
@@ -90,14 +90,14 @@ def generate_insights(
     if len(anomalies):
         top_anomaly = anomalies.iloc[0]
         insights.append(
-            f"🚨 Largest anomaly : {top_anomaly['description']} — "
+            f"Largest anomaly : {top_anomaly['description']} — "
             f"₹{top_anomaly['amount']:,.2f} (Z={top_anomaly['z_score']:.1f}). "
             f"Total unusual transactions : {len(anomalies)}."
         )
 
     # ── Avg daily spend ───────────────────────────────────────────────────────
     daily_avg = stats["total_spent"] / 365
-    insights.append(f"📆 Average daily spend : ₹{daily_avg:,.2f}.")
+    insights.append(f"Average daily spend : ₹{daily_avg:,.2f}.")
 
     return insights
 
@@ -119,7 +119,7 @@ def print_report(
     sep2 = "═" * 65
 
     print(f"\n{sep2}")
-    print("       💸  EXPENSE TRACKER — 2024 ANNUAL REPORT  💸")
+    print("EXPENSE TRACKER ")
     print(f"{sep2}")
 
     # Summary Stats
@@ -156,7 +156,7 @@ def print_report(
     print(f"\n{'PAYMENT METHODS':^65}")
     print(sep)
     for _, row in pay_df.iterrows():
-        bar = "█" * int(row["pct_of_total"] / 2)
+        bar = "" * int(row["pct_of_total"] / 2)
         print(f"  {row['payment_method']:<14} {bar:<22} "
               f"₹{row['total']:>10,.0f}  ({row['pct_of_total']:.1f}%)")
 
@@ -181,7 +181,7 @@ def print_report(
     print(sep)
     if len(anomalies):
         for _, row in anomalies.head(5).iterrows():
-            print(f"  🚨 {row['description']:<28} ₹{row['amount']:>10,.2f}  "
+            print(f"  {row['description']:<28} ₹{row['amount']:>10,.2f}  "
                   f"Z={row['z_score']:.2f}")
     else:
         print("  No anomalies detected.")
@@ -221,4 +221,4 @@ def save_report(
     sys.stdout = old_stdout
     with open(path, "w", encoding="utf-8") as f:
         f.write(buffer.getvalue())
-    print(f"  📄 Report saved → {path}")
+    print(f"  Report saved → {path}")
