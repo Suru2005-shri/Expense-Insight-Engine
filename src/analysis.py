@@ -193,7 +193,7 @@ def budget_analysis(df: pd.DataFrame) -> pd.DataFrame:
 
     result["variance"]      = (result["actual_monthly_avg"] - result["budget"]).round(2)
     result["status"]        = result["variance"].apply(
-        lambda x: "🔴 Over Budget" if x > 0 else "🟢 Under Budget"
+        lambda x: "Over Budget" if x > 0 else "Under Budget"
     )
     result["over_budget_pct"] = (result["variance"] / result["budget"] * 100).round(2)
     return result.reset_index().rename(columns={"index": "category"})
