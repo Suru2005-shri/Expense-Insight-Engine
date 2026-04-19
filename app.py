@@ -1,4 +1,9 @@
-
+"""
+╔══════════════════════════════════════════════════════════╗
+║   DYNAMIC EXPENSE TRACKER — Real-time User Data Entry    ║
+║   Run:  streamlit run app.py                             ║
+╚══════════════════════════════════════════════════════════╝
+"""
 
 import streamlit as st
 import pandas as pd
@@ -11,7 +16,9 @@ import io
 import os
 from datetime import datetime, date
 
-══════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════
+#  CONFIG & CONSTANTS
+# ══════════════════════════════════════════════════════════════
 
 st.set_page_config(
     page_title="Expense Tracker",
@@ -55,6 +62,9 @@ DEFAULT_BUDGETS = {
 MONTH_ORDER = ["January","February","March","April","May","June",
                "July","August","September","October","November","December"]
 
+# ══════════════════════════════════════════════════════════════
+#  GLOBAL CSS
+# ══════════════════════════════════════════════════════════════
 
 st.markdown("""
 <style>
@@ -437,13 +447,12 @@ if st.session_state.show_budget_modal:
 #  MAIN TABS
 # ══════════════════════════════════════════════════════════════
 
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "  Add Expense  ",
     "  Dashboard  ",
     "  My Expenses  ",
     "  Budget  ",
     "  Insights  ",
-    "  Improve Project  ",
 ])
 
 
@@ -1018,227 +1027,227 @@ with tab5:
 #  TAB 6 — HOW TO IMPROVE
 # ══════════════════════════════════════════════════════════════
 
-with tab6:
+# # with tab6:
 
-    st.markdown("## How to Improve This Project")
-    st.markdown(
-        "<p style='color:#64748b;font-size:.85rem;'>"
-        "A structured roadmap from student project to production-grade "
-        "financial analytics platform.</p>",
-        unsafe_allow_html=True
-    )
+#     st.markdown("## How to Improve This Project")
+#     st.markdown(
+#         "<p style='color:#64748b;font-size:.85rem;'>"
+#         "A structured roadmap from student project to production-grade "
+#         "financial analytics platform.</p>",
+#         unsafe_allow_html=True
+#     )
 
-    # ── Level 1 ──────────────────────────────────────────────
-    st.markdown("---")
-    st.markdown("### Level 1 — Easy Wins (1–3 days each)")
+#     # ── Level 1 ──────────────────────────────────────────────
+#     st.markdown("---")
+#     st.markdown("### Level 1 — Easy Wins (1–3 days each)")
 
-    l1_items = [
-        ("Bank Statement Import",
-         "Parse real bank CSV/PDF exports (HDFC, SBI, ICICI) using pdfplumber or camelot. "
-         "Auto-map merchant names to categories with fuzzy string matching. "
-         "Eliminates manual entry for real users."),
-        ("PDF Report Export",
-         "Use reportlab or fpdf2 to generate a monthly PDF with embedded charts. "
-         "Users can share it with an accountant or keep as a personal record."),
-        ("Monthly Email Summary",
-         "Use smtplib + schedule to auto-send a monthly email with key stats, "
-         "budget warnings, and top expenses. Zero-touch financial awareness."),
-        ("Smart Auto-Categorization",
-         "Use keyword mapping (Zomato→Food, Uber→Transport) or train a small "
-         "Naive Bayes / TF-IDF classifier on transaction descriptions. "
-         "Reduces manual category selection."),
-        ("Recurring Expense Detection",
-         "Identify repeating expenses (rent, subscriptions) and flag if a known "
-         "recurring payment is missing for the current month. Useful for budgeting."),
-        ("Dark/Light Theme Toggle",
-         "Add a proper theme switch persisted via config file. "
-         "Small UX improvement but shows attention to user experience."),
-    ]
+#     l1_items = [
+#         ("Bank Statement Import",
+#          "Parse real bank CSV/PDF exports (HDFC, SBI, ICICI) using pdfplumber or camelot. "
+#          "Auto-map merchant names to categories with fuzzy string matching. "
+#          "Eliminates manual entry for real users."),
+#         ("PDF Report Export",
+#          "Use reportlab or fpdf2 to generate a monthly PDF with embedded charts. "
+#          "Users can share it with an accountant or keep as a personal record."),
+#         ("Monthly Email Summary",
+#          "Use smtplib + schedule to auto-send a monthly email with key stats, "
+#          "budget warnings, and top expenses. Zero-touch financial awareness."),
+#         ("Smart Auto-Categorization",
+#          "Use keyword mapping (Zomato→Food, Uber→Transport) or train a small "
+#          "Naive Bayes / TF-IDF classifier on transaction descriptions. "
+#          "Reduces manual category selection."),
+#         ("Recurring Expense Detection",
+#          "Identify repeating expenses (rent, subscriptions) and flag if a known "
+#          "recurring payment is missing for the current month. Useful for budgeting."),
+#         ("Dark/Light Theme Toggle",
+#          "Add a proper theme switch persisted via config file. "
+#          "Small UX improvement but shows attention to user experience."),
+#     ]
 
-    c1, c2 = st.columns(2)
-    for i, (title, desc) in enumerate(l1_items):
-        with (c1 if i%2==0 else c2):
-            st.markdown(
-                f"<div class='improve-card'><h4>{title}</h4><p>{desc}</p></div>",
-                unsafe_allow_html=True
-            )
+#     c1, c2 = st.columns(2)
+#     for i, (title, desc) in enumerate(l1_items):
+#         with (c1 if i%2==0 else c2):
+#             st.markdown(
+#                 f"<div class='improve-card'><h4>{title}</h4><p>{desc}</p></div>",
+#                 unsafe_allow_html=True
+#             )
 
-    # ── Level 2 ──────────────────────────────────────────────
-    st.markdown("---")
-    st.markdown("### Level 2 — Intermediate Features (1–2 weeks each)")
+#     # ── Level 2 ──────────────────────────────────────────────
+#     st.markdown("---")
+#     st.markdown("### Level 2 — Intermediate Features (1–2 weeks each)")
 
-    l2_items = [
-        ("ML Expense Forecasting",
-         "Use Facebook Prophet or ARIMA to predict next month's spend per category. "
-         "Show forecast with confidence intervals. Train on 3+ months of data. "
-         "Directly relevant for Data Scientist roles."),
-        ("Real-time Budget Alerts",
-         "Send push notifications via Telegram Bot API or browser alerts when "
-         "spending crosses 80% or 100% of a monthly budget. Needs background scheduler."),
-        ("SQLite / PostgreSQL Database",
-         "Replace CSV with SQLite (beginner) or PostgreSQL (advanced) via SQLAlchemy. "
-         "Shows database skills critical for DA/DE/BA roles. Enables multi-user support."),
-        ("Multi-User Authentication",
-         "Add Streamlit-Authenticator or FastAPI + JWT auth. "
-         "Each user gets their own isolated expense history. "
-         "Transforms it from a personal tool to a shareable product."),
-        ("Multi-Currency Support",
-         "Use forex-python or Open Exchange Rates API to convert foreign expenses "
-         "to home currency. Essential for frequent travellers."),
-        ("Interactive React Frontend",
-         "Replace Streamlit with React + FastAPI backend. "
-         "Add drag-to-reorder, inline editing, real-time charts via Recharts. "
-         "Production-grade web app experience."),
-    ]
+#     l2_items = [
+#         ("ML Expense Forecasting",
+#          "Use Facebook Prophet or ARIMA to predict next month's spend per category. "
+#          "Show forecast with confidence intervals. Train on 3+ months of data. "
+#          "Directly relevant for Data Scientist roles."),
+#         ("Real-time Budget Alerts",
+#          "Send push notifications via Telegram Bot API or browser alerts when "
+#          "spending crosses 80% or 100% of a monthly budget. Needs background scheduler."),
+#         ("SQLite / PostgreSQL Database",
+#          "Replace CSV with SQLite (beginner) or PostgreSQL (advanced) via SQLAlchemy. "
+#          "Shows database skills critical for DA/DE/BA roles. Enables multi-user support."),
+#         ("Multi-User Authentication",
+#          "Add Streamlit-Authenticator or FastAPI + JWT auth. "
+#          "Each user gets their own isolated expense history. "
+#          "Transforms it from a personal tool to a shareable product."),
+#         ("Multi-Currency Support",
+#          "Use forex-python or Open Exchange Rates API to convert foreign expenses "
+#          "to home currency. Essential for frequent travellers."),
+#         ("Interactive React Frontend",
+#          "Replace Streamlit with React + FastAPI backend. "
+#          "Add drag-to-reorder, inline editing, real-time charts via Recharts. "
+#          "Production-grade web app experience."),
+#     ]
 
-    c3, c4 = st.columns(2)
-    for i, (title, desc) in enumerate(l2_items):
-        with (c3 if i%2==0 else c4):
-            st.markdown(
-                f"<div class='improve-card'><h4>{title}</h4><p>{desc}</p></div>",
-                unsafe_allow_html=True
-            )
+#     c3, c4 = st.columns(2)
+#     for i, (title, desc) in enumerate(l2_items):
+#         with (c3 if i%2==0 else c4):
+#             st.markdown(
+#                 f"<div class='improve-card'><h4>{title}</h4><p>{desc}</p></div>",
+#                 unsafe_allow_html=True
+#             )
 
-    # ── Level 3 ──────────────────────────────────────────────
-    st.markdown("---")
-    st.markdown("### Level 3 — Advanced / Production (1–4 weeks each)")
+#     # ── Level 3 ──────────────────────────────────────────────
+#     st.markdown("---")
+#     st.markdown("### Level 3 — Advanced / Production (1–4 weeks each)")
 
-    l3_items = [
-        ("Bank API Integration",
-         "Integrate with Plaid (US) or Finvu / Account Aggregator (India) "
-         "to auto-import transactions in real-time. This is what production fintech apps do."),
-        ("LLM-Powered Financial Advisor",
-         "Send spending summaries to Claude / GPT-4 and generate personalized "
-         "conversational advice: 'You spent 40% on food. Here are 3 ways to save Rs.2,000/month.'"),
-        ("Cloud Deployment with CI/CD",
-         "Dockerize the app, deploy on AWS EC2 or Streamlit Cloud, "
-         "add GitHub Actions for auto-deploy on push. Demonstrates DevOps awareness."),
-        ("End-to-End Data Encryption",
-         "Encrypt all financial data at rest (AES-256) and in transit (HTTPS). "
-         "Add 2FA login. Required for any production financial product."),
-        ("Investment Tracking Module",
-         "Track SIP, mutual funds, and stocks alongside expenses. "
-         "Pull live NAV via MF API or Yahoo Finance. "
-         "Show net worth = assets minus liabilities over time."),
-        ("Voice / OCR Expense Entry",
-         "Allow users to photograph a receipt or speak an expense. "
-         "Use Tesseract OCR + Whisper STT to auto-extract amount, merchant, date. "
-         "Removes friction from expense logging entirely."),
-    ]
+#     l3_items = [
+#         ("Bank API Integration",
+#          "Integrate with Plaid (US) or Finvu / Account Aggregator (India) "
+#          "to auto-import transactions in real-time. This is what production fintech apps do."),
+#         ("LLM-Powered Financial Advisor",
+#          "Send spending summaries to Claude / GPT-4 and generate personalized "
+#          "conversational advice: 'You spent 40% on food. Here are 3 ways to save Rs.2,000/month.'"),
+#         ("Cloud Deployment with CI/CD",
+#          "Dockerize the app, deploy on AWS EC2 or Streamlit Cloud, "
+#          "add GitHub Actions for auto-deploy on push. Demonstrates DevOps awareness."),
+#         ("End-to-End Data Encryption",
+#          "Encrypt all financial data at rest (AES-256) and in transit (HTTPS). "
+#          "Add 2FA login. Required for any production financial product."),
+#         ("Investment Tracking Module",
+#          "Track SIP, mutual funds, and stocks alongside expenses. "
+#          "Pull live NAV via MF API or Yahoo Finance. "
+#          "Show net worth = assets minus liabilities over time."),
+#         ("Voice / OCR Expense Entry",
+#          "Allow users to photograph a receipt or speak an expense. "
+#          "Use Tesseract OCR + Whisper STT to auto-extract amount, merchant, date. "
+#          "Removes friction from expense logging entirely."),
+#     ]
 
-    c5, c6 = st.columns(2)
-    for i, (title, desc) in enumerate(l3_items):
-        with (c5 if i%2==0 else c6):
-            st.markdown(
-                f"<div class='improve-card'><h4>{title}</h4><p>{desc}</p></div>",
-                unsafe_allow_html=True
-            )
+#     c5, c6 = st.columns(2)
+#     for i, (title, desc) in enumerate(l3_items):
+#         with (c5 if i%2==0 else c6):
+#             st.markdown(
+#                 f"<div class='improve-card'><h4>{title}</h4><p>{desc}</p></div>",
+#                 unsafe_allow_html=True
+#             )
 
-    # ── Tech stack upgrade table ──────────────────────────────
-    st.markdown("---")
-    st.markdown("### Tech Stack Upgrade Roadmap")
-    st.markdown("""
-    <div style='background:#161628;border:1px solid #252540;border-radius:12px;padding:1.5rem;overflow-x:auto;'>
-    <table style='width:100%;border-collapse:collapse;font-size:.82rem;min-width:600px;'>
-    <thead>
-      <tr style='border-bottom:1px solid #252540;'>
-        <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Component</th>
-        <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Current (V1)</th>
-        <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Intermediate (V2)</th>
-        <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Production (V3)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style='border-bottom:1px solid #1e1e38;'>
-        <td style='padding:10px 12px;color:#94a3b8;'>Storage</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>CSV File</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>SQLite</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>PostgreSQL / MongoDB</td>
-      </tr>
-      <tr style='border-bottom:1px solid #1e1e38;'>
-        <td style='padding:10px 12px;color:#94a3b8;'>Frontend</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Streamlit</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Dash / Gradio</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>React + FastAPI</td>
-      </tr>
-      <tr style='border-bottom:1px solid #1e1e38;'>
-        <td style='padding:10px 12px;color:#94a3b8;'>Authentication</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>None</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Streamlit-Auth</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>JWT + OAuth2</td>
-      </tr>
-      <tr style='border-bottom:1px solid #1e1e38;'>
-        <td style='padding:10px 12px;color:#94a3b8;'>ML / AI</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Z-Score rules</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Prophet Forecasting</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>LLM Advisor + AutoML</td>
-      </tr>
-      <tr style='border-bottom:1px solid #1e1e38;'>
-        <td style='padding:10px 12px;color:#94a3b8;'>Data Source</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Manual / CSV</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Bank PDF Import</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Plaid / Finvu API</td>
-      </tr>
-      <tr style='border-bottom:1px solid #1e1e38;'>
-        <td style='padding:10px 12px;color:#94a3b8;'>Deployment</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Local only</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Streamlit Cloud</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>AWS / GCP + Docker + K8s</td>
-      </tr>
-      <tr>
-        <td style='padding:10px 12px;color:#94a3b8;'>Alerts</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>None</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Email via SMTP</td>
-        <td style='padding:10px 12px;color:#e2e8f0;'>Telegram Bot + Web Push</td>
-      </tr>
-    </tbody>
-    </table>
-    </div>
-    """, unsafe_allow_html=True)
+#     # ── Tech stack upgrade table ──────────────────────────────
+#     st.markdown("---")
+#     st.markdown("### Tech Stack Upgrade Roadmap")
+#     st.markdown("""
+#     <div style='background:#161628;border:1px solid #252540;border-radius:12px;padding:1.5rem;overflow-x:auto;'>
+#     <table style='width:100%;border-collapse:collapse;font-size:.82rem;min-width:600px;'>
+#     <thead>
+#       <tr style='border-bottom:1px solid #252540;'>
+#         <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Component</th>
+#         <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Current (V1)</th>
+#         <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Intermediate (V2)</th>
+#         <th style='text-align:left;padding:10px 12px;color:#a78bfa;'>Production (V3)</th>
+#       </tr>
+#     </thead>
+#     <tbody>
+#       <tr style='border-bottom:1px solid #1e1e38;'>
+#         <td style='padding:10px 12px;color:#94a3b8;'>Storage</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>CSV File</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>SQLite</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>PostgreSQL / MongoDB</td>
+#       </tr>
+#       <tr style='border-bottom:1px solid #1e1e38;'>
+#         <td style='padding:10px 12px;color:#94a3b8;'>Frontend</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Streamlit</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Dash / Gradio</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>React + FastAPI</td>
+#       </tr>
+#       <tr style='border-bottom:1px solid #1e1e38;'>
+#         <td style='padding:10px 12px;color:#94a3b8;'>Authentication</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>None</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Streamlit-Auth</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>JWT + OAuth2</td>
+#       </tr>
+#       <tr style='border-bottom:1px solid #1e1e38;'>
+#         <td style='padding:10px 12px;color:#94a3b8;'>ML / AI</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Z-Score rules</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Prophet Forecasting</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>LLM Advisor + AutoML</td>
+#       </tr>
+#       <tr style='border-bottom:1px solid #1e1e38;'>
+#         <td style='padding:10px 12px;color:#94a3b8;'>Data Source</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Manual / CSV</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Bank PDF Import</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Plaid / Finvu API</td>
+#       </tr>
+#       <tr style='border-bottom:1px solid #1e1e38;'>
+#         <td style='padding:10px 12px;color:#94a3b8;'>Deployment</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Local only</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Streamlit Cloud</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>AWS / GCP + Docker + K8s</td>
+#       </tr>
+#       <tr>
+#         <td style='padding:10px 12px;color:#94a3b8;'>Alerts</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>None</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Email via SMTP</td>
+#         <td style='padding:10px 12px;color:#e2e8f0;'>Telegram Bot + Web Push</td>
+#       </tr>
+#     </tbody>
+#     </table>
+#     </div>
+#     """, unsafe_allow_html=True)
 
-    # ── Interview Q&A ─────────────────────────────────────────
-    st.markdown("---")
-    st.markdown("### Interview Q&A — Say This When Asked About Improvements")
+#     # ── Interview Q&A ─────────────────────────────────────────
+#     st.markdown("---")
+#     st.markdown("### Interview Q&A — Say This When Asked About Improvements")
 
-    qa = [
-        ("How would you scale this to 1 million users?",
-         "Migrate to PostgreSQL with proper indexing on user_id, date, and category. "
-         "Add Redis caching for dashboard queries. "
-         "Use Kubernetes with horizontal pod autoscaling. "
-         "Partition data by user_id for fast retrieval. "
-         "Implement CDN for static assets."),
-        ("How would you add ML predictions?",
-         "Train a Facebook Prophet model per category on 6+ months of data. "
-         "Expose predictions via a FastAPI endpoint. "
-         "Re-train weekly using an Airflow DAG. "
-         "Show forecast + confidence intervals in the dashboard chart."),
-        ("How would you handle data privacy?",
-         "AES-256 encryption at rest, HTTPS for all transit, "
-         "no PII in logs, per-user data isolation in DB, "
-         "GDPR-compliant delete API, and regular security audits."),
-        ("What KPIs would you track for this as a product?",
-         "DAU/MAU for engagement, expenses logged per session, "
-         "budget breach rate, D7/D30 retention, "
-         "CSV export count as a trust proxy, and time-to-first-insight after signup."),
-        ("How would you auto-categorize expenses?",
-         "Start with keyword rules (Zomato→Food, Uber→Transport). "
-         "Then train a TF-IDF + Logistic Regression classifier on labeled historical data. "
-         "Improve with a fine-tuned BERT model for production accuracy."),
-    ]
+#     qa = [
+#         ("How would you scale this to 1 million users?",
+#          "Migrate to PostgreSQL with proper indexing on user_id, date, and category. "
+#          "Add Redis caching for dashboard queries. "
+#          "Use Kubernetes with horizontal pod autoscaling. "
+#          "Partition data by user_id for fast retrieval. "
+#          "Implement CDN for static assets."),
+#         ("How would you add ML predictions?",
+#          "Train a Facebook Prophet model per category on 6+ months of data. "
+#          "Expose predictions via a FastAPI endpoint. "
+#          "Re-train weekly using an Airflow DAG. "
+#          "Show forecast + confidence intervals in the dashboard chart."),
+#         ("How would you handle data privacy?",
+#          "AES-256 encryption at rest, HTTPS for all transit, "
+#          "no PII in logs, per-user data isolation in DB, "
+#          "GDPR-compliant delete API, and regular security audits."),
+#         ("What KPIs would you track for this as a product?",
+#          "DAU/MAU for engagement, expenses logged per session, "
+#          "budget breach rate, D7/D30 retention, "
+#          "CSV export count as a trust proxy, and time-to-first-insight after signup."),
+#         ("How would you auto-categorize expenses?",
+#          "Start with keyword rules (Zomato→Food, Uber→Transport). "
+#          "Then train a TF-IDF + Logistic Regression classifier on labeled historical data. "
+#          "Improve with a fine-tuned BERT model for production accuracy."),
+#     ]
 
-    for q, a in qa:
-        with st.expander(f"Q: {q}"):
-            st.markdown(
-                f"<div style='color:#94a3b8;font-size:.85rem;line-height:1.7;"
-                f"padding:.5rem 0;'>{a}</div>",
-                unsafe_allow_html=True
-            )
+#     for q, a in qa:
+#         with st.expander(f"Q: {q}"):
+#             st.markdown(
+#                 f"<div style='color:#94a3b8;font-size:.85rem;line-height:1.7;"
+#                 f"padding:.5rem 0;'>{a}</div>",
+#                 unsafe_allow_html=True
+#             )
 
-    st.markdown("---")
-    st.markdown(
-        "<div style='text-align:center;color:#475569;font-size:.78rem;padding:1rem;'>"
-        "Data saved locally to <code>data/user_expenses.csv</code> "
-        "· Built with Python, Pandas, Matplotlib, Streamlit"
-        "</div>",
-        unsafe_allow_html=True
-    )
+#     st.markdown("---")
+#     st.markdown(
+#         "<div style='text-align:center;color:#475569;font-size:.78rem;padding:1rem;'>"
+#         "Data saved locally to <code>data/user_expenses.csv</code> "
+#         "· Built with Python, Pandas, Matplotlib, Streamlit"
+#         "</div>",
+#         unsafe_allow_html=True
+#     )
