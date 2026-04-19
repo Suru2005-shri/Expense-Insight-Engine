@@ -1,9 +1,4 @@
-"""
-╔══════════════════════════════════════════════════════════╗
-║   DYNAMIC EXPENSE TRACKER — Real-time User Data Entry    ║
-║   Run:  streamlit run app.py                             ║
-╚══════════════════════════════════════════════════════════╝
-"""
+
 
 import streamlit as st
 import pandas as pd
@@ -16,13 +11,11 @@ import io
 import os
 from datetime import datetime, date
 
-# ══════════════════════════════════════════════════════════════
-#  CONFIG & CONSTANTS
-# ══════════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════
 
 st.set_page_config(
     page_title="Expense Tracker",
-    page_icon="💸",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -62,9 +55,6 @@ DEFAULT_BUDGETS = {
 MONTH_ORDER = ["January","February","March","April","May","June",
                "July","August","September","October","November","December"]
 
-# ══════════════════════════════════════════════════════════════
-#  GLOBAL CSS
-# ══════════════════════════════════════════════════════════════
 
 st.markdown("""
 <style>
