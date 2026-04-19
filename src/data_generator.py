@@ -1,9 +1,4 @@
-"""
-data_generator.py
------------------
-Generates 1 year of realistic synthetic expense data.
-Categories, amounts, and payment methods mimic real-world spending patterns.
-"""
+
 
 import pandas as pd
 import numpy as np
