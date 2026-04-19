@@ -38,7 +38,7 @@ def main():
     # ════════════════════════════════════════════════════════════
     # PHASE 1 — GENERATE SYNTHETIC DATA
     # ════════════════════════════════════════════════════════════
-    banner("📦 PHASE 1 — Generating Synthetic Dataset")
+    banner("PHASE 1 — Generating Synthetic Dataset")
     df_raw = generate_expenses(year=2024)
     save_dataset(df_raw, "data/expenses.csv")
     print(f"\n  Preview (first 5 rows):\n{df_raw.head().to_string(index=False)}")
@@ -46,13 +46,13 @@ def main():
     # ════════════════════════════════════════════════════════════
     # PHASE 2 — CLEAN DATA
     # ════════════════════════════════════════════════════════════
-    banner("🧹 PHASE 2 — Data Cleaning")
+    banner(" PHASE 2 — Data Cleaning")
     df = clean_data(df_raw)
 
     # ════════════════════════════════════════════════════════════
     # PHASE 3 — ANALYSIS
     # ════════════════════════════════════════════════════════════
-    banner("📊 PHASE 3 — Analysis")
+    banner(" PHASE 3 — Analysis")
 
     stats      = summary_stats(df)
     cat_df     = category_analysis(df)
@@ -66,16 +66,16 @@ def main():
     anomalies  = detect_anomalies(df)
     savings    = savings_estimate(df, monthly_income=60000)
 
-    print(f"\n  ✅ Total Spent       : ₹{stats['total_spent']:,.2f}")
-    print(f"  ✅ Transactions      : {stats['total_transactions']}")
-    print(f"  ✅ Avg Transaction   : ₹{stats['avg_transaction']:,.2f}")
-    print(f"  ✅ Anomalies Found   : {len(anomalies)}")
-    print(f"  ✅ Savings Rate      : {savings['savings_rate_pct']:.1f}%")
+    print(f"\n  Total Spent       : ₹{stats['total_spent']:,.2f}")
+    print(f"   Transactions      : {stats['total_transactions']}")
+    print(f"   Avg Transaction   : ₹{stats['avg_transaction']:,.2f}")
+    print(f"   Anomalies Found   : {len(anomalies)}")
+    print(f"   Savings Rate      : {savings['savings_rate_pct']:.1f}%")
 
     # ════════════════════════════════════════════════════════════
     # PHASE 4 — VISUALIZATIONS
     # ════════════════════════════════════════════════════════════
-    banner("🎨 PHASE 4 — Generating Charts")
+    banner("PHASE 4 — Generating Charts")
 
     charts = [
         ("Dashboard Summary",         lambda: plot_dashboard_summary(cat_df, monthly_df, pay_df, budget_df)),
@@ -93,13 +93,13 @@ def main():
     ]
 
     for name, fn in charts:
-        print(f"\n  ▶ {name}")
+        print(f"\n   {name}")
         fn()
 
     # ════════════════════════════════════════════════════════════
     # PHASE 5 — INSIGHTS & REPORT
     # ════════════════════════════════════════════════════════════
-    banner("🔍 PHASE 5 — Generating Insights & Report")
+    banner(" PHASE 5 — Generating Insights & Report")
 
     insights = generate_insights(stats, cat_df, monthly_df, budget_df, anomalies, savings)
     print_report(stats, cat_df, monthly_df, pay_df, budget_df,
@@ -113,10 +113,10 @@ def main():
     # ════════════════════════════════════════════════════════════
     elapsed = time.time() - t0
     print(f"\n{'═'*60}")
-    print(f"  🎉  Pipeline complete in {elapsed:.1f}s")
-    print(f"  📁  Charts  → outputs/charts/")
-    print(f"  📄  Report  → outputs/annual_report.txt")
-    print(f"  📊  Dataset → data/expenses.csv")
+    print(f"    Pipeline complete in {elapsed:.1f}s")
+    print(f"   Charts  → outputs/charts/")
+    print(f"   Report  → outputs/annual_report.txt")
+    print(f"   Dataset → data/expenses.csv")
     print(f"{'═'*60}\n")
 
 
