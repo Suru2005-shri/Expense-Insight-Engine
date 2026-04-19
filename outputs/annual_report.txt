@@ -1,0 +1,107 @@
+
+═════════════════════════════════════════════════════════════════
+       💸  EXPENSE TRACKER — 2024 ANNUAL REPORT  💸
+═════════════════════════════════════════════════════════════════
+
+                             SUMMARY                             
+─────────────────────────────────────────────────────────────────
+  Date Range        : 2024-01-01 → 2024-12-30
+  Total Spent       : ₹1,552,413.11
+  Total Transactions:    852
+  Avg Transaction   : ₹    1,822.08
+  Max Transaction   : ₹   23,983.96
+  Categories        : 12
+
+                      SPENDING BY CATEGORY                       
+─────────────────────────────────────────────────────────────────
+  #   Category                      Total  Count   Share
+  ─── ────────────────────── ──────────── ────── ───────
+  1   Food & Dining          ₹   307,446    240   19.8%
+  2   Shopping               ₹   236,956     60   15.3%
+  3   Groceries              ₹   221,541     96   14.3%
+  4   Travel                 ₹   141,855     12    9.1%
+  5   Rent                   ₹   133,193     12    8.6%
+  6   Education              ₹   130,456     24    8.4%
+  7   Entertainment          ₹   107,768     72    6.9%
+  8   Transportation         ₹    76,507    180    4.9%
+  9   Healthcare             ₹    69,044     24    4.5%
+  10  Personal Care          ₹    50,871     48    3.3%
+  11  Utilities              ₹    48,741     36    3.1%
+  12  Subscriptions          ₹    28,036     48    1.8%
+
+                         MONTHLY TRENDS                          
+─────────────────────────────────────────────────────────────────
+  Month               Total  Count        MoM Δ
+  ──────────── ──────────── ────── ────────────
+  January      ₹   112,009     71            —
+  February     ₹   112,671     67        ₹+662
+  March        ₹   169,730     76     ₹+57,059
+  April        ₹   136,803     76     ₹-32,927
+  May          ₹   186,065     79     ₹+49,262
+  June         ₹   128,013     85     ₹-58,053
+  July         ₹   108,668     58     ₹-19,345
+  August       ₹   147,461     67     ₹+38,793
+  September    ₹   110,810     75     ₹-36,651
+  October      ₹   118,585     77      ₹+7,775
+  November     ₹   108,735     57      ₹-9,850
+  December     ₹   112,864     64      ₹+4,129
+
+                         PAYMENT METHODS                         
+─────────────────────────────────────────────────────────────────
+  UPI            ████████████████████   ₹   647,103  (41.7%)
+  Credit Card    █████████████          ₹   403,610  (26.0%)
+  Debit Card     █████████              ₹   292,330  (18.8%)
+  Cash           ████                   ₹   126,605  (8.2%)
+  Net Banking    ██                     ₹    82,765  (5.3%)
+
+                        BUDGET vs ACTUAL                         
+─────────────────────────────────────────────────────────────────
+  Category                   Budget     Actual Status
+  ────────────────────── ────────── ────────── ────────────────────
+  Education              ₹   8,000 ₹  10,871  🔴 Over Budget
+  Entertainment          ₹   4,000 ₹   8,981  🔴 Over Budget
+  Food & Dining          ₹   5,000 ₹  25,620  🔴 Over Budget
+  Groceries              ₹   6,000 ₹  18,462  🔴 Over Budget
+  Healthcare             ₹   3,000 ₹   5,754  🔴 Over Budget
+  Personal Care          ₹   2,000 ₹   4,239  🔴 Over Budget
+  Rent                   ₹  12,000 ₹  11,099  🟢 Under Budget
+  Shopping               ₹   5,000 ₹  19,746  🔴 Over Budget
+  Subscriptions          ₹   1,500 ₹   2,336  🔴 Over Budget
+  Transportation         ₹   3,000 ₹   6,376  🔴 Over Budget
+  Travel                 ₹  10,000 ₹  11,821  🔴 Over Budget
+  Utilities              ₹   3,000 ₹   4,062  🔴 Over Budget
+
+                       TOP 5 TRANSACTIONS                        
+─────────────────────────────────────────────────────────────────
+  1. Train Ticket                   ₹ 23,983.96  (Travel)
+  2. Train Ticket                   ₹ 17,557.81  (Travel)
+  3. Monthly Rent                   ₹ 13,855.95  (Rent)
+  4. Hotel Booking                  ₹ 13,216.34  (Travel)
+  5. House Rent                     ₹ 12,998.41  (Rent)
+
+                       ANOMALIES DETECTED                        
+─────────────────────────────────────────────────────────────────
+  No anomalies detected.
+
+                        SAVINGS OVERVIEW                         
+─────────────────────────────────────────────────────────────────
+  Monthly Income  : ₹ 60,000.00
+  Monthly Spend   : ₹129,367.76
+  Monthly Savings : ₹-69,367.76
+  Savings Rate    :    -115.6%
+
+                         🔍 KEY INSIGHTS                          
+─────────────────────────────────────────────────────────────────
+  📌 Total spent in 2024 : ₹1,552,413.11 across 852 transactions.
+  🏆 Highest spending category : Food & Dining (₹307,445.70, 19.8% of total).
+  💡 Lowest spending category : Subscriptions (₹28,036.41).
+  📅 Peak spending month : May (₹186,065.39).
+  📉 Lowest spending month : July (₹108,667.70).
+  💳 Average transaction amount : ₹1,822.08.
+  ⚠️  Over-budget categories (11) : Education, Entertainment, Food & Dining, Groceries, Healthcare, Personal Care, Shopping, Subscriptions, Transportation, Travel, Utilities.
+  🟢 Under-budget categories : 1 out of 12.
+  💰 Savings rate : -115.6%  (🔴 Poor) — saving ₹-69,367.76/month.
+  📆 Average daily spend : ₹4,253.19.
+
+═════════════════════════════════════════════════════════════════
+
