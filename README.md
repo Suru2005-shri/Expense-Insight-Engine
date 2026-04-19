@@ -1,4 +1,4 @@
-# 💸 Expense Tracker App — using Data Science
+#  Expense Tracker App — using Data Science
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0+-green?logo=pandas)
@@ -13,7 +13,7 @@
 
 ---
 
-## 📌 Problem Statement
+##  Problem Statement
 
 Individuals and businesses often struggle to understand where money goes,
 identify overspending, and plan budgets effectively.
@@ -22,7 +22,7 @@ to actionable financial insights — using data science techniques.
 
 ---
 
-## ✅ Solution
+##  Solution
 
 An end-to-end Python pipeline that:
 - Generates **852 realistic synthetic transactions** across 12 expense categories
@@ -36,25 +36,25 @@ An end-to-end Python pipeline that:
 
 ---
 
-## 🚀 Features
+##  Features
 
 | Feature | Description |
 |---|---|
-| 📦 Synthetic Data Generator | 852 realistic expense records for 2024 |
-| 🧹 Data Cleaning | Duplicate removal, type validation, null handling |
-| 📊 Category Analysis | Breakdown across 12 categories with % share |
-| 📈 Monthly Trends | Month-over-month change and visual trend line |
-| 💳 Payment Analysis | UPI, Credit Card, Debit Card, Cash, Net Banking |
-| 🎯 Budget vs Actual | Per-category variance and over/under budget flags |
-| 🚨 Anomaly Detection | Z-score based unusual transaction flagging |
-| 💰 Savings Estimator | Monthly savings rate calculation |
-| 🔥 Heatmap | Day × Hour spending intensity heatmap |
-| 📄 Auto Report | Full text annual report generated automatically |
-| 🌐 Streamlit Dashboard | Interactive web app with filters |
+|  Synthetic Data Generator | 852 realistic expense records for 2024 |
+|  Data Cleaning | Duplicate removal, type validation, null handling |
+|  Category Analysis | Breakdown across 12 categories with % share |
+|  Monthly Trends | Month-over-month change and visual trend line |
+|  Payment Analysis | UPI, Credit Card, Debit Card, Cash, Net Banking |
+|  Budget vs Actual | Per-category variance and over/under budget flags |
+|  Anomaly Detection | Z-score based unusual transaction flagging |
+|  Savings Estimator | Monthly savings rate calculation |
+|  Heatmap | Day × Hour spending intensity heatmap |
+|  Auto Report | Full text annual report generated automatically |
+|  Streamlit Dashboard | Interactive web app with filters |
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ```
 Python 3.10+      → Core language
@@ -67,7 +67,7 @@ Streamlit         → Interactive web dashboard
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Expense-Tracker-App/
@@ -90,15 +90,15 @@ Expense-Tracker-App/
 │
 ├── images/                    ← Screenshots for README
 │
-├── main.py                    ← ⚡ Run full pipeline (entry point)
-├── app.py                     ← 🌐 Streamlit dashboard
+├── main.py                    ←  Run full pipeline (entry point)
+├── app.py                     ←  Streamlit dashboard
 ├── requirements.txt           ← Python dependencies
 └── README.md                  ← This file
 ```
 
 ---
 
-## ⚡ How to Run
+##  How to Run
 
 ### 1. Clone the repository
 ```bash
@@ -140,7 +140,7 @@ Open → http://localhost:8501
 
 ---
 
-## 📊 Charts Generated
+##  Charts Generated
 
 | File | Description |
 |---|---|
@@ -159,25 +159,25 @@ Open → http://localhost:8501
 
 ---
 
-## 🔍 Key Insights (Sample — 2024)
+##  Key Insights (Sample — 2024)
 
-- 💸 **Total Spent** : ₹15,52,413 across **852 transactions**
-- 🏆 **Top Category** : Food & Dining (19.8% of total spend)
-- 📅 **Peak Month** : May (₹1,86,065)
-- 💳 **Top Payment** : UPI (41.7% of all transactions)
-- ⚠️  **11 of 12** categories exceeded monthly budget
+-  **Total Spent** : ₹15,52,413 across **852 transactions**
+-  **Top Category** : Food & Dining (19.8% of total spend)
+-  **Peak Month** : May (₹1,86,065)
+-  **Top Payment** : UPI (41.7% of all transactions)
+-   **11 of 12** categories exceeded monthly budget
 - 📆 **Daily Average** : ₹4,253 per day
 
 ---
 
-## 🏗️ Architecture & Workflow
+##  Architecture & Workflow
 
 ```
-📥 Data Input (Synthetic Generator)
+ Data Input (Synthetic Generator)
         ↓
-🧹 Data Cleaning (Pandas)
+ Data Cleaning (Pandas)
         ↓
-📊 Analysis Layer
+ Analysis Layer
    ├── Category Analysis
    ├── Monthly Trends
    ├── Payment Breakdown
@@ -185,58 +185,22 @@ Open → http://localhost:8501
    ├── Anomaly Detection
    └── Savings Estimation
         ↓
-🎨 Visualization Layer (Matplotlib / Seaborn)
+ Visualization Layer (Matplotlib / Seaborn)
         ↓
-🔍 Insight Engine (Auto-generated findings)
+ Insight Engine (Auto-generated findings)
         ↓
-📄 Output (Charts + Report + Dashboard)
+ Output (Charts + Report + Dashboard)
 ```
 
----
 
-## 🎯 Roles This Project Is Relevant For
-
-- **Data Analyst** — EDA, aggregation, trend analysis, visualization
-- **Business Analyst** — Budget vs actual, KPI reporting, insights
-- **Financial Analyst** — Expense categorization, savings rate, anomaly detection
-- **Python Developer** — Modular OOP-style code, CLI pipeline
-
----
-
-## 📚 Interview Talking Points
-
-1. *"How did you handle missing data?"* — Used `.fillna()`, `.drop_duplicates()`, validated dtypes
-2. *"What analysis did you perform?"* — Category, monthly, quarterly, payment, budget, anomaly, savings
-3. *"How did you detect anomalies?"* — Z-score method: flagged transactions >2.5 SD above category mean
-4. *"How would you improve this with real data?"* — API integration (bank feeds), ML forecasting, alert system
-5. *"Why synthetic data?"* — Privacy, reproducibility, and full control over testing scenarios
-
----
-
-## 🚀 Future Enhancements
-
-- [ ] ML-based expense category auto-tagging
-- [ ] Forecasting next month's spend (ARIMA / Prophet)
-- [ ] PDF report export
-- [ ] Bank statement CSV import
-- [ ] Email alert for budget overrun
-- [ ] Multi-user support with database backend
-
----
-
-## 📜 License
+##  License
 
 MIT License — free to use, modify, and distribute.
 
 ---
 
-## 👤 Author
+##  Author
 
-**Your Name**  
-B.Tech / BCA Student | Aspiring Data Analyst  
-📧 your.email@example.com  
-🔗 [LinkedIn](https://linkedin.com/in/yourprofile) | [GitHub](https://github.com/yourusername)
-
----
-
-*Built with ❤️ using Python, Pandas, Matplotlib, and Streamlit*
+**Shruti Srivastava**
+B.E | Aspiring Data Analyst   
+ [LinkedIn] https://www.linkedin.com/in/shruti-srivastava-36b26232a/?skipRedirect=true
